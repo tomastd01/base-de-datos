@@ -19,15 +19,14 @@ io.on("connection", (socket) => {
     io.emit("INIT", chatSvcs.getAll())
 
 
-    socket.on("POST_MESSAGE", (msg) => {
+    socket.on("POST_MESSAGE", async(msg) => {
         let date = new Date()
         const newMsg = {...msg, date: date.toLocaleString()};
-        chatSvcs.saveNewMessage(newMsg);
+        await chatSvcs.saveNewMessage(newMsg);
         io.sockets.emit("NEW_MESSAGE", newMsg);
     })
     
 })
-
 
 
 const PORT = process.env.PORT || 8080;
