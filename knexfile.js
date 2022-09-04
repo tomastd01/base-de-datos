@@ -2,7 +2,7 @@
 const knexConfig = {
     client: "sqlite3",
     connection: {
-        filename: "./database.sqlite"
+        filename: "./database3.sqlite"
     },
     migrations: {
         tableName: "knex_migrations",

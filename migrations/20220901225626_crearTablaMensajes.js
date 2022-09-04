@@ -6,7 +6,7 @@
     return knex.schema.createTable("messages", (table) => {
         table.increments("id").primary().notNullable();
         table.string("email", 255).notNullable();
-        table.string("msg", 255).notNullable();
+        table.string("message", 255).notNullable();
         table.string("date", 255).notNullable();
     });
 };

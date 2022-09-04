@@ -8,8 +8,8 @@ socket.on("connect", ()=> {
 
 socket.on("INIT", (messages)=> {
     document.getElementById("posts").innerHTML = "";
-    messages
-        .forEach(msg => appendMessage(msg));
+    let msgArray = JSON.parse(messages);
+        msgArray.forEach(msg => appendMessage(msg));
 });
 
 
@@ -29,7 +29,7 @@ function appendMessage(msg) {
 
 function sendMessage() {
     const email = document.getElementById("email").value;
-    const message = document.getElementById("msg").value;
+    const message = document.getElementById("message").value;
     if (!email) return;
     socket.emit("POST_MESSAGE", {email, message})
 }
