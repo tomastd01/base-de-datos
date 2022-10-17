@@ -1,13 +1,9 @@
-
-const knex = require("knex");
-const knexConfig = require("../knexfile")
-const db = knex(knexConfig);
-const tableName = "messages";
-
+const fs = require("fs")
+const {getAllMessages} = require("../database/messages.js")
 
     const getAll = async () => {
         try {
-            const messages = await db(tableName).select();
+            const messages = getAllMessages();
             return JSON.stringify(messages)
         } catch(err) {
             console.log(err)
@@ -16,9 +12,11 @@ const tableName = "messages";
 
     const saveNewMessage = async (message) => {
         try {
-            await db(tableName).insert(message);
+            const messages = getAllMessages();
+            messages.push(message);
+            fs.writeFileSync("./database/messages.json", JSON.stringify(messages, null, 2), {encoding: "utf-8"})
         } catch(err) {
-            console.log(err)
+            console.log("Error neneeee",err)
         }
     }
 

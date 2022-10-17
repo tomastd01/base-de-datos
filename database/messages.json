@@ -1,0 +1,26 @@
+[
+  {
+    "author": {
+      "id": "tomas@gmail.com",
+      "name": "pepe",
+      "lastName": "Messi",
+      "age": "35",
+      "alias": "leo",
+      "Avatar": "nada"
+    },
+    "message": "hola perreks que onda",
+    "date": "11/10/2022 18:46:36"
+  },
+  {
+    "author": {
+      "id": "toto@hotmail.com",
+      "name": "Tomi",
+      "lastName": "Torres",
+      "age": "21",
+      "alias": "Toto",
+      "avatar": "naadaa"
+    },
+    "message": "Hola, tanto tiempo !!",
+    "date": "17/10/2022 17:53:27"
+  }
+]

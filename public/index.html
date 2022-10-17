@@ -33,13 +33,24 @@
         <div id="form">
             <label for="email">Email: </label>
             <input type="email" name="email" id="email" required>
-            <label for="message">Mensaje:</label>
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" required>
+            <label for="lastName">Last name: </label>
+            <input type="text" name="lastName" id="lastName" required>
+            <label for="age">Age: </label>
+            <input type="number" name="age" id="age" required>
+            <label for="alias">Alias: </label>
+            <input type="text" name="alias" id="alias" required>
+            <label for="avatar">Avatar: </label>
+            <input type="text" name="avatar" id="avatar" required>
+            <label for="message">Mensaje: </label>
             <input type="textarea" id="message" name="message">
             <button onclick="sendMessage()">Enviar</button>
         </div>
     </div>
 
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>

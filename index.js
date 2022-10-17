@@ -1,5 +1,5 @@
 const express = require("express");
-const productRouter = require("./routes/productRoutes");
+/* const productRouter = require("./routes/productRoutes"); */
 const {getAll, saveNewMessage} = require("./services/chatServices")
 const {Server: HTTPServer, get} = require("http");
 const {Server: SocketServer} = require("socket.io");
@@ -11,13 +11,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use("/api/products", productRouter);
+/* app.use("/api/products", productRouter); */
 
-
-const knex = require("knex");
-const knexConfig = require("./knexfile")
-const db = knex(knexConfig);
-const tableName = "messages";
 
 
 io.on("connection", async (socket) => {

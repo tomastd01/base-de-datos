@@ -8,12 +8,12 @@ const {validateProduct} = require("../validators/productValidator");
 productRouter 
     .route("/")
     .get(productCtrl.getAll)
-    .post(validateProduct, productCtrl.saveNewProduct)
+    .post( productCtrl.saveNewProduct)
 
 productRouter 
     .route("/:id")
     .get(productCtrl.getById)
-    .put(validateProduct, productCtrl.replaceById)
+    .put( productCtrl.replaceById)
     .delete(productCtrl.deleteById)
 
 module.exports = productRouter;
