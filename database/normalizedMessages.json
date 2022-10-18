@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "authors": {
+      "tomas@gmail.com": {
+        "id": "tomas@gmail.com",
+        "name": "pepe",
+        "lastName": "Messi",
+        "age": "35",
+        "alias": "leo",
+        "Avatar": "nada"
+      },
+      "toto@hotmail.com": {
+        "id": "toto@hotmail.com",
+        "name": "Tomi",
+        "lastName": "Torres",
+        "age": "21",
+        "alias": "Toto",
+        "avatar": "naadaa"
+      }
+    },
+    "messages": {
+      "1": {
+        "author": "tomas@gmail.com",
+        "text": "hola perreks que onda",
+        "date": "11/10/2022 18:46:36",
+        "id": 1
+      },
+      "2": {
+        "author": "toto@hotmail.com",
+        "text": "Hola, tanto tiempo !!",
+        "date": "17/10/2022 17:53:27",
+        "id": 2
+      }
+    }
+  },
+  "result": [
+    1,
+    2
+  ]
+}

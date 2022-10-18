@@ -5,10 +5,23 @@ socket.on("connect", ()=> {
 })
 
 // CHAT -----------------------------------------------------
+const authorSchema = new schema.Entity("authors");
 
-socket.on("INIT", (messages)=> {
+const messageSchema = new schema.Entity("messages", {
+    author: authorSchema
+})
+
+const messages = new schema.Array(messageSchema);
+
+async function denormalizeData(data) {
+    const denormalizedData = denormalize(data.result, messages, data.entities)
+    return JSON.stringify(denormalizedData);
+}
+
+socket.on("INIT", async (messages)=> {
     document.getElementById("posts").innerHTML = "";
-    let msgArray = JSON.parse(messages);
+    let msgArray = JSON.parse(await denormalizeData(messages));
+    console.log(msgArray)
     msgArray.forEach(msg => appendMessage(msg));
 });
 
@@ -21,7 +34,7 @@ function appendMessage(msg) {
     document.getElementById("posts").innerHTML += `
     <div class="post">
         <p>
-            <span class="email">${msg.author.id}</span><span class="date">[${msg.date}</span>]: <span class="msg">${msg.message}</span>
+            <span class="email">${msg.author.id}</span><span class="date">[${msg.date}</span>]: <span class="msg">${msg.text}</span>
         </p>
     </div>
     `;
@@ -29,16 +42,17 @@ function appendMessage(msg) {
 
 function sendMessage() {
     const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const text = document.getElementById("message").value;
     const name = document.getElementById("name").value;
     const lastName = document.getElementById("lastName").value;
     const age = document.getElementById("age").value;
     const alias = document.getElementById("alias").value;
     const avatar = document.getElementById("avatar").value;
 
-    let msg = {author: {id: email, name, lastName, age, alias, avatar}, message}
+    let msg = {author: {id: email, name, lastName, age, alias, avatar}, text}
 
     console.log(msg)
-    /* if (!email) return; */
     socket.emit("POST_MESSAGE", msg)
 }
+
+

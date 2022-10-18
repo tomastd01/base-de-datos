@@ -8,8 +8,9 @@
       "alias": "leo",
       "Avatar": "nada"
     },
-    "message": "hola perreks que onda",
-    "date": "11/10/2022 18:46:36"
+    "text": "hola perreks que onda",
+    "date": "11/10/2022 18:46:36",
+    "id": 1
   },
   {
     "author": {
@@ -20,7 +21,8 @@
       "alias": "Toto",
       "avatar": "naadaa"
     },
-    "message": "Hola, tanto tiempo !!",
-    "date": "17/10/2022 17:53:27"
+    "text": "Hola, tanto tiempo !!",
+    "date": "17/10/2022 17:53:27",
+    "id": 2
   }
 ]

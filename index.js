@@ -1,6 +1,5 @@
 const express = require("express");
-/* const productRouter = require("./routes/productRoutes"); */
-const {getAll, saveNewMessage} = require("./services/chatServices")
+const {getAll, saveNewMessage, getNormalizedData} = require("./services/chatServices")
 const {Server: HTTPServer, get} = require("http");
 const {Server: SocketServer} = require("socket.io");
 const app = express();
@@ -11,13 +10,10 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-/* app.use("/api/products", productRouter); */
-
-
 
 io.on("connection", async (socket) => {
     console.log("new client");
-    io.emit("INIT", await getAll())
+    io.emit("INIT", await getNormalizedData())
 
 
     socket.on("POST_MESSAGE", async (msg) => {

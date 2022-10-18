@@ -1,5 +1,6 @@
 const fs = require("fs")
-const {getAllMessages} = require("../database/messages.js")
+/* const {normalized} = require("../normalizr") */
+const {getAllMessages, getAllNormalizedData} = require("../database/messages.js")
 
     const getAll = async () => {
         try {
@@ -20,4 +21,13 @@ const {getAllMessages} = require("../database/messages.js")
         }
     }
 
-module.exports = {getAll, saveNewMessage};
+    const getNormalizedData = async () => {
+        try {
+            const messages = JSON.stringify(getAllNormalizedData(), null, 2);
+            return messages;
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+module.exports = {getAll, saveNewMessage, getNormalizedData};
