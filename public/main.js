@@ -1,11 +1,4 @@
-const socket = io();
-
-socket.on("connect", ()=> {
-    console.log("connected to server")
-})
-
-// CHAT -----------------------------------------------------
-const authorSchema = new schema.Entity("authors");
+/* const authorSchema = new schema.Entity("authors");
 
 const messageSchema = new schema.Entity("messages", {
     author: authorSchema
@@ -16,11 +9,19 @@ const messages = new schema.Array(messageSchema);
 async function denormalizeData(data) {
     const denormalizedData = denormalize(data.result, messages, data.entities)
     return JSON.stringify(denormalizedData);
-}
+} */
 
-socket.on("INIT", async (messages)=> {
+// CHAT -----------------------------------------------------
+
+const socket = io();
+
+socket.on("connect", ()=> {
+    console.log("connected to server")
+})
+
+socket.on("INIT", (messages)=> {
     document.getElementById("posts").innerHTML = "";
-    let msgArray = JSON.parse(denormalizeData(messages));
+    let msgArray = JSON.parse(messages);
     console.log(msgArray)
     msgArray.forEach(msg => appendMessage(msg));
 });

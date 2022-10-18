@@ -16,6 +16,14 @@
         "age": "21",
         "alias": "Toto",
         "avatar": "naadaa"
+      },
+      "rupert@gmail.com": {
+        "id": "rupert@gmail.com",
+        "name": "Rupert",
+        "lastName": "Pert",
+        "age": "79",
+        "alias": "sdfsdf",
+        "avatar": "asdsdf"
       }
     },
     "messages": {
@@ -30,11 +38,18 @@
         "text": "Hola, tanto tiempo !!",
         "date": "17/10/2022 17:53:27",
         "id": 2
+      },
+      "4d1562a5-e8f6-4207-b3c5-612f39009548": {
+        "author": "rupert@gmail.com",
+        "text": "hola como va!",
+        "date": "17/10/2022 23:49:53",
+        "id": "4d1562a5-e8f6-4207-b3c5-612f39009548"
       }
     }
   },
   "result": [
     1,
-    2
+    2,
+    "4d1562a5-e8f6-4207-b3c5-612f39009548"
   ]
 }

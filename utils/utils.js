@@ -5,11 +5,9 @@ const saveToDB = (array, file) => {
     fs.writeFileSync("./src/database/" + file, JSON.stringify(array, null, 2), {encoding: "utf-8"})
 }
 
-const addIdToNewProduct = (newProduct) => {
-    const date = new Date();
+const addId = (newProduct) => {
     const productWithId = {
         id: uuid(),
-        timestamp: date.toLocaleString(),
         ...newProduct,
     }
 
@@ -18,5 +16,5 @@ const addIdToNewProduct = (newProduct) => {
 
 module.exports = {
     saveToDB,
-    addIdToNewProduct
+    addId
 }
