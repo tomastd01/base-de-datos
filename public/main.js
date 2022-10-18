@@ -20,7 +20,7 @@ async function denormalizeData(data) {
 
 socket.on("INIT", async (messages)=> {
     document.getElementById("posts").innerHTML = "";
-    let msgArray = JSON.parse(await denormalizeData(messages));
+    let msgArray = JSON.parse(denormalizeData(messages));
     console.log(msgArray)
     msgArray.forEach(msg => appendMessage(msg));
 });
